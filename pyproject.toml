@@ -1,0 +1,20 @@
+[project]
+name = "uv-nixpkgs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.119.0",
+    "uvicorn>=0.37.0",
+]
+
+[project.scripts]
+"uv_nixpkgs" = "uv_nixpkgs.main:app"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
