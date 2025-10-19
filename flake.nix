@@ -59,17 +59,19 @@
             cfg = config.services.demoUvNixpkgs;
           in
           {
-            options = with lib; {
-              services.demoUvNixpkgs = {
-                enable = mkEnableOption "Demo UV Nixpkgs";
+            options = pkgs.callPackage ./nix/systemd/options.nix {};
+            
+            # options = with lib; {
+            #   services.demoUvNixpkgs = {
+            #     enable = mkEnableOption "Demo UV Nixpkgs";
 
-                package = mkOption {
-                  type = types.path;
-                  default = self.packages.${system}.default;
-                  description = "Package to use for UV Nixpkgs Demo service.";
-                };
-              };
-            };
+            #     package = mkOption {
+            #       type = types.path;
+            #       default = self.packages.${system}.default;
+            #       description = "Package to use for UV Nixpkgs Demo service.";
+            #     };
+            #   };
+            # };
 
             config = lib.mkIf cfg.enable {
               systemd.services.demoUvNixpkgs = {
