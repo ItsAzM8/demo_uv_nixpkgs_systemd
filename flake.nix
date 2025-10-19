@@ -26,7 +26,7 @@
         python = pkgs.python312;
 
         demoUvNixpkgsDerivation = pkgs.callPackage ./nix/uv_nixpkgs_derivation.nix {
-          inherit pyproject-nix uv2nix pyproject-build-systems;
+          inherit pyproject-nix uv2nix pyproject-build-systems python;
         };
 
       in
